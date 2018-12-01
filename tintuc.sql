@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 01, 2018 lúc 07:30 AM
+-- Thời gian đã tạo: Th12 01, 2018 lúc 07:45 AM
 -- Phiên bản máy phục vụ: 10.1.35-MariaDB
 -- Phiên bản PHP: 7.2.9
 
@@ -21,6 +21,47 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `tintuc`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `nguoidung`
+--
+
+CREATE TABLE `nguoidung` (
+  `MaND` int(20) NOT NULL,
+  `HoTen` varchar(50) NOT NULL,
+  `MatKhau` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `nguoidung`
+--
+
+INSERT INTO `nguoidung` (`MaND`, `HoTen`, `MatKhau`) VALUES
+(1, 'Nguyen Van A', '123456'),
+(2, 'Tran Van B', '123456'),
+(3, 'Tran Thi D', '123456'),
+(4, 'Tran Van C', '123456');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `theloai`
+--
+
+CREATE TABLE `theloai` (
+  `MaTheLoai` int(20) NOT NULL,
+  `TenTheLoai` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `theloai`
+--
+
+INSERT INTO `theloai` (`MaTheLoai`, `TenTheLoai`) VALUES
+(1, 'The Thao'),
+(2, 'Dien Anh');
 
 -- --------------------------------------------------------
 
@@ -48,6 +89,18 @@ INSERT INTO `tintuc` (`MaTin`, `TieuDe`, `NoiDung`, `Anh`, `NgayDang`, `NguoiDan
 --
 -- Chỉ mục cho các bảng đã đổ
 --
+
+--
+-- Chỉ mục cho bảng `nguoidung`
+--
+ALTER TABLE `nguoidung`
+  ADD PRIMARY KEY (`MaND`);
+
+--
+-- Chỉ mục cho bảng `theloai`
+--
+ALTER TABLE `theloai`
+  ADD PRIMARY KEY (`MaTheLoai`);
 
 --
 -- Chỉ mục cho bảng `tintuc`
