@@ -10,6 +10,4 @@ Nguyễn Cát Tường - 42.01.104.156
 
 Nhan Thái Dương - 42.01.104.217
 
-Đàm Nhật Phong - 42.01.104.107
-
 Huỳnh Phú Thành -42.01.104.161
