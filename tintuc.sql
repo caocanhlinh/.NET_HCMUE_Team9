@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 01, 2018 lúc 07:45 AM
+-- Thời gian đã tạo: Th12 01, 2018 lúc 08:45 AM
 -- Phiên bản máy phục vụ: 10.1.35-MariaDB
 -- Phiên bản PHP: 7.2.9
 
@@ -61,7 +61,9 @@ CREATE TABLE `theloai` (
 
 INSERT INTO `theloai` (`MaTheLoai`, `TenTheLoai`) VALUES
 (1, 'The Thao'),
-(2, 'Dien Anh');
+(2, 'Dien Anh'),
+(3, 'Cong Nghe'),
+(4, 'Thoi Trang');
 
 -- --------------------------------------------------------
 
@@ -84,7 +86,9 @@ CREATE TABLE `tintuc` (
 --
 
 INSERT INTO `tintuc` (`MaTin`, `TieuDe`, `NoiDung`, `Anh`, `NgayDang`, `NguoiDang`, `MaTheLoai`) VALUES
-(1, 'Kết Quả AFF CUP', 'Việt Nam đăng quang ngôi quán quân.', '', '2018-12-01', '1', 1);
+(1, 'Kết Quả AFF CUP', 'Việt Nam đăng quang ngôi quán quân.', '', '2018-12-01', '1', 1),
+(2, 'Phim Việt mùa tết Dương Lịch', 'Các bộ phim sắp ra mắt:', '', '2018-12-01', 'Minh Vuong', 2),
+(3, 'Chung Kết UEFA champions League', '2 đội lọt vào vòng chung kết là.....', '', '2018-12-02', 'Cao Linh', 1);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -106,7 +110,18 @@ ALTER TABLE `theloai`
 -- Chỉ mục cho bảng `tintuc`
 --
 ALTER TABLE `tintuc`
-  ADD PRIMARY KEY (`MaTin`);
+  ADD PRIMARY KEY (`MaTin`),
+  ADD KEY `MaTheLoai` (`MaTheLoai`);
+
+--
+-- Các ràng buộc cho các bảng đã đổ
+--
+
+--
+-- Các ràng buộc cho bảng `tintuc`
+--
+ALTER TABLE `tintuc`
+  ADD CONSTRAINT `tintuc_ibfk_1` FOREIGN KEY (`MaTheLoai`) REFERENCES `theloai` (`MaTheLoai`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
